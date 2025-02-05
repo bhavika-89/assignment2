@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Carousel</title>
+    <style>
+        body { text-align: center; font-family: Arial, sans-serif; }
+        .carousel-container { position: relative; width: 300px; margin: auto; }
+        img { width: 100%; height: auto; border-radius: 10px; }
+        .button-container { margin-top: 10px; }
+        button { padding: 10px; margin: 5px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h2>Simple Image Carousel</h2>
+    <div class="carousel-container">
+        <img id="carousel-image" src="" >
+    </div>
+    <div class="button-container">
+        <button onclick="prevImage()">Previous</button>
+        <button onclick="nextImage()">Next</button>
+    </div>
+    
+    <script>
+        const images = [
+            "C:/Users/bhavi/OneDrive/Desktop/images/img1.jpg",
+            "C:/Users/bhavi/OneDrive/Desktop/images/img2.jpg",
+            "C:/Users/bhavi/OneDrive/Desktop/images/img3.jpg",
+            "C:/Users/bhavi/OneDrive/Desktop/images/img4.jpg"
+        ];
+        
+        let currentIndex = 0;
+        const imgElement = document.getElementById("carousel-image");
+        imgElement.src = images[currentIndex];
+        
+        function nextImage() {
+            currentIndex = (currentIndex + 1) % images.length;
+            imgElement.src = images[currentIndex];
+        }
+        
+        function prevImage() {
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            imgElement.src = images[currentIndex];
+        }
+    </script>
+</body>
+</html>
